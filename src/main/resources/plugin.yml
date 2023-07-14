@@ -1,0 +1,6 @@
+name: OraxenCoolMechanics
+version: '${project.version}'
+main: com.daytheipc.oraxencoolmechanics.OraxenCoolMechanics
+api-version: 1.19
+authors: [ DanielaPaladino, DayOS ]
+
