@@ -47,8 +47,11 @@ public final class OraxenCoolMechanics extends JavaPlugin {
     public void onEnable() {
         spiGUI = new SpiGUI(this);
         spiGUI.setDefaultToolbarBuilder(defaultToolbarBuilder);
-        Object DurabilityMechanicFactory;
-        MechanicsManager.registerMechanicFactory("package_unboxer", PackageUnboxerFactory::new);
+
+        MechanicsManager.registerMechanicFactory(PackageMechanic.mechanic_id, new PackageMechanicFactory(PackageMechanic.mechanic_id), true);
+        MechanicsManager.registerMechanicFactory(SoundPlayerMechanic.mechanic_id, new SoundPlayerMechanicFactory(SoundPlayerMechanic.mechanic_id), true);
+        MechanicsManager.registerMechanicFactory(JukeboxMobSpawningMechanic.mechanic_id, new JukeboxMobSpawningMechanicFactory(JukeboxMobSpawningMechanic.mechanic_id), true);
+
         OraxenItems.loadItems();
         Bukkit.getLogger().log(Level.FINE, "Plugin Loaded ^^!!");
     }
