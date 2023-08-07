@@ -1,5 +1,15 @@
 package com.daytheipc.oraxencoolmechanics;
 
+import com.daytheipc.oraxencoolmechanics.OraxenMechanics.CCShopMechanic;
+import com.daytheipc.oraxencoolmechanics.OraxenMechanics.CCShopMechanicFactory;
+import com.daytheipc.oraxencoolmechanics.OraxenMechanics.JukeboxMobSpawning.JukeboxMobSpawningMechanic;
+import com.daytheipc.oraxencoolmechanics.OraxenMechanics.JukeboxMobSpawning.JukeboxMobSpawningMechanicFactory;
+import com.daytheipc.oraxencoolmechanics.OraxenMechanics.MMSpawner.MMSpawnerMechanic;
+import com.daytheipc.oraxencoolmechanics.OraxenMechanics.MMSpawner.MMSpawnerMechanicFactory;
+import com.daytheipc.oraxencoolmechanics.OraxenMechanics.Package.PackageMechanic;
+import com.daytheipc.oraxencoolmechanics.OraxenMechanics.Package.PackageMechanicFactory;
+import com.daytheipc.oraxencoolmechanics.OraxenMechanics.SoundPlayer.SoundPlayerMechanic;
+import com.daytheipc.oraxencoolmechanics.OraxenMechanics.SoundPlayer.SoundPlayerMechanicFactory;
 import com.samjakob.spigui.SpiGUI;
 import com.samjakob.spigui.buttons.SGButton;
 import com.samjakob.spigui.item.ItemBuilder;
@@ -14,6 +24,7 @@ import java.util.logging.Level;
 
 public final class OraxenCoolMechanics extends JavaPlugin {
     public static SpiGUI spiGUI;
+    public static SpiGUI ccShopGUI;
     private final SGToolbarBuilder defaultToolbarBuilder = (slot, page, type, menu) -> {
         switch (type) {
             case PREV_BUTTON:
@@ -45,12 +56,15 @@ public final class OraxenCoolMechanics extends JavaPlugin {
     };
     @Override
     public void onEnable() {
+        ccShopGUI = new SpiGUI(this);
         spiGUI = new SpiGUI(this);
         spiGUI.setDefaultToolbarBuilder(defaultToolbarBuilder);
 
         MechanicsManager.registerMechanicFactory(PackageMechanic.mechanic_id, new PackageMechanicFactory(PackageMechanic.mechanic_id), true);
         MechanicsManager.registerMechanicFactory(SoundPlayerMechanic.mechanic_id, new SoundPlayerMechanicFactory(SoundPlayerMechanic.mechanic_id), true);
         MechanicsManager.registerMechanicFactory(JukeboxMobSpawningMechanic.mechanic_id, new JukeboxMobSpawningMechanicFactory(JukeboxMobSpawningMechanic.mechanic_id), true);
+        MechanicsManager.registerMechanicFactory(MMSpawnerMechanic.mechanic_id, new MMSpawnerMechanicFactory(MMSpawnerMechanic.mechanic_id), true);
+        MechanicsManager.registerMechanicFactory(CCShopMechanic.mechanic_id, new CCShopMechanicFactory(CCShopMechanic.mechanic_id), true);
 
         OraxenItems.loadItems();
         Bukkit.getLogger().log(Level.FINE, "Plugin Loaded ^^!!");

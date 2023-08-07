@@ -1,5 +1,6 @@
-package com.daytheipc.oraxencoolmechanics;
+package com.daytheipc.oraxencoolmechanics.OraxenMechanics.Package;
 
+import com.daytheipc.oraxencoolmechanics.OraxenCoolMechanics;
 import com.samjakob.spigui.buttons.SGButton;
 import com.samjakob.spigui.menu.SGMenu;
 import io.th0rgal.oraxen.api.OraxenItems;
@@ -13,7 +14,6 @@ import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.persistence.PersistentDataContainer;
-import org.bukkit.persistence.PersistentDataType;
 
 public class PackageMechanicManager implements Listener {
     private PackageMechanicFactory factory;
@@ -77,6 +77,7 @@ public class PackageMechanicManager implements Listener {
         if (type == null || category == null) return;
 
         if (type == Type.BOX){
+            e.setCancelled(true);
             openBoxMenu(e.getPlayer(), category, item);
         }
         else if (type == Type.ITEM){
@@ -87,9 +88,6 @@ public class PackageMechanicManager implements Listener {
             player.getInventory().setItemInMainHand(box);
             player.getWorld().playSound(player.getLocation(), Sound.ENTITY_VILLAGER_WORK_MASON, 1, 0.7F);
         }
-
-
-        //ItemStack item = e.getPlayer().getInventory().getItem(e.getNewSlot());
 
     }
 }

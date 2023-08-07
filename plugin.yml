@@ -1,5 +1,5 @@
 name: OraxenCoolMechanics
-version: '1.2-SNAPSHOT'
+version: '1.3-SNAPSHOT'
 main: com.daytheipc.oraxencoolmechanics.OraxenCoolMechanics
 api-version: 1.20.1
 authors: [ DanielaPaladino, DayOS ]

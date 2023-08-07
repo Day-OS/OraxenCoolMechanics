@@ -1,4 +1,4 @@
-package com.daytheipc.oraxencoolmechanics;
+package com.daytheipc.oraxencoolmechanics.OraxenMechanics.Package;
 
 import io.th0rgal.oraxen.OraxenPlugin;
 import io.th0rgal.oraxen.mechanics.Mechanic;
@@ -12,7 +12,7 @@ enum Type{
     BOX,
 }
 
-class PackageMechanic extends Mechanic {
+public class PackageMechanic extends Mechanic {
     public static final String mechanic_id = "package";
     public static final NamespacedKey NAMESPACE_KEY_TYPE = new NamespacedKey(OraxenPlugin.get(), "package-type");
     public static final NamespacedKey NAMESPACE_KEY_CATEGORY = new NamespacedKey(OraxenPlugin.get(), "package-category");
